@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CartItems from "../components/CartItems.jsx";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
@@ -32,16 +32,20 @@ const Cart = () => {
 
             <div className=" mt-72">
               <p className=" font-semibold">Total Amount: <span className="font-bold">${totalAmount}</span></p>
-              <button className=" px-20 py-2 rounded-2xl bg-green-600  text-white font-semibold mt-1 hover:bg-green-700 transition duration-150 ease-in">Checkout Now</button>
+              <NavLink to={"/checkout"}>
+                <button className=" px-20 py-2 rounded-2xl bg-green-600  text-white font-semibold mt-1 hover:bg-green-700 transition duration-150 ease-in">Checkout Now</button>
+              </NavLink>
             </div>
           </div>
         </div>
       ) : (
-        <div>
-          <h1>Cart Empty</h1>
-          <Link to={"/"}>
-            <button>Shop Now</button>
-          </Link>
+        <div className=" mt-52">
+          <div className=" flex flex-col justify-center items-center">
+            <h1 className=" text-xl opacity-80 font-bold text-slate-800">Cart Empty!</h1>
+              <Link to={"/"}>
+                <button className=" mt-6 px-4 py-1 text-lg font-semibold text-white rounded-xl bg-green-600 hover:bg-green-700 transition duration-150 ease-in ">Shop Now</button>
+              </Link>
+          </div>  
         </div>
       )}
     </div>
