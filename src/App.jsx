@@ -6,7 +6,7 @@ import Checkout from "./pages/Checkout";
 
 const App = () => {
   return (<div>
-    <div className="bg-slate-900 ">
+    <div className=" ">
       <Navbar/>
     </div>
     <div>
