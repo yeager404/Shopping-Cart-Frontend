@@ -15,14 +15,14 @@ const CartItems = ({ item, itemIndex }) => {
   return (
     <div className="mb-9 ">
       <div className="flex space-between space-x-4 ">
-        <div className="h-[120px] w-[150px]">
-          <img src={item.image} className="w-fit h-fit"/>
+        <div className="h-[120px] w-[120px] my-auto">
+          <img src={item.image} className="w-full h-full"/>
         </div>
-        <div className="flex flex-col gap-y-7 w-80">
+        <div className="flex flex-col gap-y-4 w-80">
           <h1 className=" font-semibold">{item.title}</h1>
           <h1>{item.description.split(" ").slice(0, 14).join(" ") + "..."}</h1>
           <div className="flex justify-between w-[300px] ">
-            <p>{item.price}</p>
+            <p className=" font-semibold">${item.price}</p>
             <div onClick={removeFromCart} className="p-2 bg-red-200 rounded-full -mt-1 hover:cursor-pointer hover:bg-red-300 transition duration-100 ease-in">
             <MdDelete />
             </div>
