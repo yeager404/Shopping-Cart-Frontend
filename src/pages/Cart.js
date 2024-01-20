@@ -2,18 +2,14 @@ import React, { useEffect, useState } from "react";
 import CartItems from "../components/CartItems.jsx";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { Link, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { clearCart } from "../redux/slices/CartSlices.js";
+
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
   const [totalAmount, setTotalAmount] = useState(0);
-  const dispatch = useDispatch();
 
-  const handleCheckout = () => {
-    dispatch(clearCart());
-  }
-  
+
+
   useEffect(() => {
     setTotalAmount(cart.reduce((acc, curr) => acc + curr.price, 0));
   }, [cart]);
@@ -51,7 +47,6 @@ const Cart = () => {
             <h1 className=" text-xl opacity-80 font-bold text-slate-800">Cart Empty!</h1>
               <Link to={"/"}>
                 <button
-                 onClick={handleCheckout}
                  className=" mt-6 px-4 py-1 text-lg font-semibold text-white rounded-xl bg-green-600 hover:bg-green-700 transition duration-150 ease-in ">Shop Now</button>
               </Link>
           </div>  
